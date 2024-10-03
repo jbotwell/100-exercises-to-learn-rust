@@ -10,12 +10,17 @@
 //
 // We expect `fibonacci(0)` to return `0`, `fibonacci(1)` to return `1`,
 // `fibonacci(2)` to return `1`, and so on.
-pub fn fibonacci(n: u32) -> u32 {
-    // TODO: implement the `fibonacci` function
-    //
-    // Hint: use a `Vec` to memoize the results you have already calculated
-    // so that you don't have to recalculate them several times.
-    todo!()
+pub fn fibonacci(n: usize) -> u32 {
+    let mut memo: Vec<u32> = vec![0, 1];
+    for _ in 1..300 {
+        let result = memo.get(n);
+        if result.is_some() {
+            return result.unwrap().clone();
+        }
+        let memo_len = memo.len();
+        memo.push(memo[memo_len - 1] + memo[memo_len - 2])
+    }
+    panic!("Too big of a number")
 }
 
 #[cfg(test)]

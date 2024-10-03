@@ -1,6 +1,11 @@
 // Rewrite the factorial function using a `for` loop.
 pub fn factorial(n: u32) -> u32 {
-    todo!()
+    let mut acc = 1;
+
+    for m in 1..=n {
+        acc *= m
+    }
+    acc
 }
 
 #[cfg(test)]

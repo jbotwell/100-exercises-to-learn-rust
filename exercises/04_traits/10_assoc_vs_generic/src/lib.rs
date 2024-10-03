@@ -1,4 +1,26 @@
-// TODO: Define a new trait, `Power`, that has a method `power` that raises `self`
+trait Power<T> {
+    fn power(&self, other: T) -> Self;
+}
+
+impl Power<u32> for u32 {
+    fn power(&self, other: u32) -> Self {
+        self.pow(other)
+    }
+}
+
+impl Power<u16> for u32 {
+    fn power(&self, other: u16) -> Self {
+        self.pow(other.into())
+    }
+}
+
+impl Power<&u32> for u32 {
+    fn power(&self, other: &u32) -> Self {
+        self.pow(*other)
+    }
+}
+
+// TODO: Define a new trait, `Power`, that has a method `power` that raises `self
 //  to the power of `n`.
 //  The trait definition and its implementations should be enough to get
 //  the tests to compile and pass.

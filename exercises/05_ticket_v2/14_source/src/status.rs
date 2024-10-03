@@ -1,3 +1,5 @@
+use crate::TicketNewError;
+
 #[derive(Debug, PartialEq, Clone)]
 pub enum Status {
     ToDo,

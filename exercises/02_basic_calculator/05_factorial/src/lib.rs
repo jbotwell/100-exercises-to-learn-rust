@@ -9,6 +9,17 @@
 // `factorial(2)` to return `2`, and so on.
 //
 // Use only what you learned! No loops yet, so you'll have to use recursion!
+fn factorial(n: u32) -> u32 {
+    return factorial_trampoline(n, 1);
+}
+
+fn factorial_trampoline(n: u32, acc: u32) -> u32 {
+    if n == 0 {
+        return acc;
+    }
+
+    factorial_trampoline(n - 1, acc * n)
+}
 
 #[cfg(test)]
 mod tests {
