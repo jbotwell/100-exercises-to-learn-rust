@@ -2,6 +2,11 @@
 //  elements in the slice.
 
 #[cfg(test)]
+
+fn sum(ns: &[u32]) -> u32 {
+    ns.iter().sum()
+}
+
 mod tests {
     use super::*;
 
