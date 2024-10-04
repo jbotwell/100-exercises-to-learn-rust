@@ -1,4 +1,4 @@
-use std::collections::btree_map::Iter;
+use std::collections::btree_map::Values;
 use std::collections::BTreeMap;
 use std::ops::{Index, IndexMut};
 use ticket_fields::{TicketDescription, TicketTitle};
@@ -10,11 +10,11 @@ pub struct TicketStore {
 }
 
 impl<'a> IntoIterator for &'a TicketStore {
-    type Item = (&'a TicketId, &'a Ticket);
-    type IntoIter = Iter<'a, TicketId, Ticket>;
+    type Item = &'a Ticket;
+    type IntoIter = Values<'a, TicketId, Ticket>;
 
     fn into_iter(self) -> Self::IntoIter {
-        self.tickets.iter()
+        self.tickets.values()
     }
 }
 
