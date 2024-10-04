@@ -36,6 +36,14 @@ impl TicketStore {
     }
 }
 
+impl IntoIterator for &TicketStore {
+    type Item = Ticket;
+    type IntoIter = std::slice::Iter<'a,Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        
+    };
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

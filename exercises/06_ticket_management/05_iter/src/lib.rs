@@ -31,7 +31,9 @@ impl TicketStore {
         self.tickets.push(ticket);
     }
 
-    pub fn iter(&self) -> Vec<Ticket> {}
+    pub fn iter(&self) -> std::slice::Iter<Ticket> {
+        self.tickets.iter()
+    }
 }
 
 #[cfg(test)]
